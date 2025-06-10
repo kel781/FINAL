@@ -4,7 +4,10 @@ require('dotenv').config(); // Load environment variables from .env file
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const Dish = require('./models/Dish'); // Import the Dish model
+const Dish = require('./models/Dish');
+ const contactRoutes = require('./routes/contactRoutes');
+
+// Import the Dish model
 
 const app = express();
 const port = process.env.PORT || 5000; // Use port from .env or default to 5000
@@ -12,6 +15,10 @@ const port = process.env.PORT || 5000; // Use port from .env or default to 5000
 // Middleware
 app.use(cors()); // Enable CORS for all routes
 app.use(express.json()); // Enable parsing of JSON request bodies
+
+// Contact Form Route
+app.use('/api', contactRoutes);
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
