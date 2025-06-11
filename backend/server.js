@@ -5,7 +5,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const Dish = require('./models/Dish');
- const contactRoutes = require('./routes/contactRoutes');
+const contactRoutes = require('./routes/contactRoutes');
+const dishRoutes = require('./routes/dishRoutes');
 
 // Import the Dish model
 
@@ -18,6 +19,9 @@ app.use(express.json()); // Enable parsing of JSON request bodies
 
 // Contact Form Route
 app.use('/api', contactRoutes);
+
+// Dish Routes
+app.use('/api/dishes', dishRoutes);
 
 
 // Connect to MongoDB
