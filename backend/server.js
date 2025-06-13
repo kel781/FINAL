@@ -7,6 +7,7 @@ const cors = require('cors');
 const Dish = require('./models/Dish');
 const contactRoutes = require('./routes/contactRoutes');
 const dishRoutes = require('./routes/dishRoutes');
+const secret = process.env.SECRET
 
 // Import the Dish model
 
